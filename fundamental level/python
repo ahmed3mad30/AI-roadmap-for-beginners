@@ -1,1 +1,2534 @@
 
+[Optional] Jupyter Notebook Themes
+Install Jupyter Notebook Themes
+!pip install jupyterthemes
+!pip install --upgrade jupyterthemes
+List available Themes
+!jt -l
+Change current theme
+!jt -t solarizedl
+Restore default theme
+!jt -r
+Guido Van Rossum
+Guiso Van Rossum
+
+Why Python?
+General Purpose
+High Level
+Easy
+Dynamically Typed
+Exceptional Community Support
+Huge Library
+drawing
+Books
+Intro to Python for Computer Science and Data Science: Learning to Program with AI, Big Data and The Cloud
+
+drawing
+Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction to Programming
+
+drawing
+Prepare your working environment
+0. What is python and why using?
+
+Open python-org + https://pypi.org/ + https://docs.python.org/3/library/index.html
+Create folder python-work
+1. Show default python version installed + path
+python --version x
+python3 --version
+which python3 --version
+whereis python
+
+2. Test code in console (interactive and script):
+
+print
+math ops
+create file using vim and execute (script/batch mode)
+3. Python in vscode + extension
+
+4. examine different versions of python in python.org:
+
+if you are using ubuntu 2004 and earlier => sudo add-apt-repository ppa:deadsnakes/ppa
+install v3.10
+install v2
+check locations
+5. check versions in vscode= test execution in v2 vs v3
+
+6. take one step back and install ipython for better interactive mode:
+
+check interactive execution
+REPL concept
+ipython is enhanced python interactive
+auto complete (intellisense)c
+magic functions
+7. Package primer:
+
+what is a package
+use os and system packages (python standard library) - c language packages - https://docs.python.org/3/library/index.html -- https://github.com/python/cpython/tree/main/Modules
+try importing matplotlib ==> it should fail
+introduce pip:
+install pip apt install python3-pip
+list installed packages
+import matplotlib
+import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.ylabel('some numbers')
+plt.show()
+- https://pypi.org/ - explore python package index
+
+8. python versions, packages, package versions, tools, etc. ==>> enter the virtual environment:
+
+where is python looking for packages (sys.path)
+use venv: sudo apt install python3-venv
+create an env with python3 and matplotlib (list with pip): python3 -m venv testing-env
+activate venv: means changes prompt and changes sys.path to add new folder of the venv source ./venv/bin/activate
+deactivate venv: deactivate
+show venv in vscode
+create another environment with python2 without matplotlib (list with pip)
+show how you can import packages in one venv but not able on the other
+use "Python environment manager" extension in vscode to explore environments
+9. Easier way to manage packages, virtual environments, nice IDEs, etc. ==> Enter Anaconda:
+
+what is Anaconda?
+install Anaconda https://docs.anaconda.com/anaconda/install/linux/
+what is conda (How it replaces pip + venv)?
+conda cheatsheet https://conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf
+Optional: PyViz Navigation https://pyviz.org/tools.html
+10. Intro to Jupyter Notebook
+
+run from anaconda navigator
+run from cli
+explore the interface
+cell types + examples
+import seaborn as sns
+sns.set()
+df = sns.load_dataset("iris")
+sns.pairplot(df, hue="species")
+
+save notebooks
+nbextensions https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html
+print("Hello Python world!")
+Variables
+13
+29 + 85
+12.8
+5 * (12.7 - 4) / 2
+'Hello World' 
+Variables and Assignment Statements
+x = 7
+y = 3
+x + y
+total = x + y
+total
+x = 9.3 # float
+y = -2 # integer
+x - y
+ 
+# very large numbers can be more readable by underscores
+universe_age = 14_000_000_000
+universe_age
+# multiple assignments
+x, y, z = 1, 2, 3
+z
+x = y = 108
+x
+y 
+Numbers
+Assignment Operators
+drawing
+x = 10
+
+x += 10 # x = x + 10
+print(x)
+
+x -= 10 # x = x - 10
+print(x)
+
+x *= 10 # x = x * 10
+print(x)
+
+x **= 10
+print(x)
+Arithmetic Operators
+drawing
+Multiplication (*)
+7 * 4
+Exponentiation (**)
+2 ** 10
+9 ** (1 / 2)
+True Division (/) vs. Floor Division (//)
+7 / 4
+7 // 4 # 1 3/4 -- 1 -  1.75 - 2 
+3 // 5
+14 // 7
+-14 // 7
+-13 / 4
+13 // 4
+-13 // 4 # -4 -  -3.25 - -3
+%%script python2.7
+print(3.0/2)
+1.0 + 2
+Exceptions and Tracebacks
+123 / 0
+q + 7
+Remainder Operator
+17 % 5 # 3 2/5
+4 % 2
+7.5 % 3.5
+Grouping Expressions with Parenthesis
+10 * (5 + 3)
+10 * 5 + 3
+Strings
+"This is a string"
+'This is also a string'
+"This is a "string""
+'I told my friend, "Python is my favorite language!"'
+"The language 'Python' is named after Monty Python, not the snake."
+"One of Python's strengths is its "diverse" and supportive community."
+Escape characters
+drawing
+'I told my friend, \'Python is my favorite language!\' '
+"I told my friend, \"Python is my favorite language!\" "
+Triple-quoted strings
+"""Display "hi" and 'bye' in quotes"""
+triple_quoted_string = """This is a triple-quoted
+string that spans two lines"""
+print(triple_quoted_string)
+triple_quoted_string
+print('This is a triple-quoted\nstring that spans two lines')
+Built-in Functions
+drawing
+Built-in Function
+
+Using built-in functions
+print('Welcome to Python!')
+abs(-45)
+chr(69)
+ord('M')
+len('python')
+max(45, 12, -90, 56, 1)
+min(45, 12, -90, 56, 1)
+sum([45, 12, -90, 56, 1])
+age = 45
+print('I am', age, 'years old')
+print("\tPython")
+print("Languages:\nPython\nC\nJavaScript")
+print("Languages:\n\tPython\n\tC\n\tJavaScript")
+ 
+Getting Input from the User
+Using input() built-in function
+name = input("What's your name? ")
+name
+print(name)
+name = input("What's your name? ")
+print('Hello Mr. ' + name)
+ 
+Function input() Always Returns a String
+value1 = input('Enter first number: ')
+value2 = input('Enter second number: ')
+
+value1 + value2
+ 
+name = input('What is your name? ')
+age = input('And what is your age?')
+
+print ('Hi',name,',you are ',age, 'years old')
+ 
+Getting an Integer from the user and using int() function
+name = input('What is your name? ')
+yob = input('And what is your year of birth?')
+
+age = 2021 - yob
+
+print ('Hi',name,',you are ',age, 'years old')
+value = input('Enter an integer: ')
+value
+value = int(value)
+value
+another_value = int(input('Enter another integer: '))
+another_value
+value + another_value
+bad_value = int(input('Enter another integer: '))
+int(10.5)
+ 
+Everything is an object
+Using type() function
+type(7)
+type(10.4)
+type('python')
+x = 7
+type(x)
+x ** 3
+y = 'python'
+type(y)
+y ** 2
+type("python")
+type("""python""")
+type('''python''')
+x = 9
+type(x)
+some_text = 'This is a text'
+type(some_text)
+Dynamic Typing
+type(x)
+x = 4.1
+type(x)
+x = 'dog'
+type(x)
+x: int = 79
+x 
+type(x)
+x = 'a'
+y = 29
+type(y)
+type(29.5)
+ 
+ 
+String and Numbers as Objects
+Strings as objects
+name = "ada lovelace"
+print(name.title()) # title() is called a method
+name = "Ada Lovelace"
+print(name.upper())
+print(name.lower())
+name = "ada lovelace"
+print(name.title())name = "ada lovelace"
+print(name.title())first_name = "ada"
+last_name = "lovelace"
+full_name = first_name + " " + last_name
+print(full_name)
+first_name = "ada"
+last_name = "lovelace"
+full_name = first_name + " " + last_name
+
+print("Hello, " + full_name.title() + "!")
+'python'.upper()
+first_name = "ada"
+last_name = "lovelace"
+full_name = first_name + " " + last_name
+
+message = "Hello, " + full_name.title() + "!"
+
+print(message)
+favorite_language = 'python '
+favorite_language
+favorite_language.rstrip()
+favorite_language = 'python '
+favorite_language = favorite_language.rstrip()
+favorite_language
+favorite_language = ' python '
+favorite_language.strip()
+age = 23
+message = "Happy " + age + "rd Birthday!"
+print(message)
+age = 23
+message = "Happy " + str(age) + "rd Birthday!"
+
+print(message)
+Numbers as objects
+x = 109
+x.bit_length()
+bin(x)
+x.as_integer_ratio()
+y = 39.02
+y.as_integer_ratio()
+float(x) # int() 
+z = 1.7e3
+print(z) 
+int(z).bit_length()
+bin(int(z))
+bin(255)
+Using dir() function to display possible attributes
+name = 'Michael'
+
+dir(name)
+age = 45
+dir(age)
+ 
+Boolean
+True or False
+type(True)
+type(False)
+True
+False
+true
+false
+True and True
+True or True
+False and False
+False or False
+True and False
+True or False
+Comparison Operators
+drawing
+1 == 2
+4 > 2
+not 1 == 2
+12 != 18
+type (not 89 < 100)
+Chaining comparison operators
+x = 6
+1 <= x <= 5
+0 is False, any other number is True
+bool(9892.3)
+bool(-209)
+bool(0)
+Empty string is False, any other string is True
+bool("Hello")
+bool(" ")
+bool("")
+converting to and from boolean
+str(True)
+str(False)
+int(True)
+int(False)
+5 + True
+13 * False
+'python' ** 2
+ 
+Boolean assignment
+boolean_true = 25 >= 25
+print(boolean_true)
+print (not boolean_true)
+print (not (not boolean_true))
+boolean_false = 0 != 0
+boolean_false
+boolean_true
+print( boolean_true and boolean_false)
+print( boolean_true or boolean_false)
+is and in keywords
+'e' in 'Hello'
+'3' in [1,2,3]
+3 in [1,2,3]
+'Hello' is 'Hello'
+10 is 10
+x = 16
+y = 16
+x is y
+x == y
+print(id(x))
+print(id(y))
+x = [1,2,3]
+y = [1,2,3]
+x == y
+x is y
+print(id(x))
+print(id(y))
+hex(id(x))
+id(y[0])
+id(x[0])
+None type
+# None in Python is similar to null in other languages
+type(None)
+x = None
+x
+print(x)
+print(None is None)
+print(None == False)
+bool(None)
+bool(None) == bool("")
+dir(None)
+Comments
+How Do You Write Comments?
+# Say hello to everyone.
+print("Hello Python people!")
+What Kind of Commments Should You Write?
+Collaboration
+Notes
+Missing Code
+Explanation
+bla bla bla
+The Zen of Python
+import this
+print(this.s)
+[Sequences]
+Containers that hold some values Python Sequences
+
+Built-in Types
+
+Python Ordered Sequences
+Strings
+Lists
+Tuples
+range()
+Bytes Sequences
+Bytes Array
+Python Unordered Sequences
+Sets
+Dictionaries
+Iterable
+[[Ordered Sequences]]
+Lists
+What Is a List?
+Equivalent but not equal to arrays
+Python doesn't have arrays as part of the standard types, but has array module in the Standard Library
+Python array module
+
+numbers = [54, -12, 0, 77, 1976]
+numbers
+print(type(numbers))
+misc = [(1,2), 'Ahmed', 47, [25, -9]]
+misc
+print(type(misc))
+bicycles = ['trek', 'cannondale', 'redline', 'specialized']
+print(bicycles)
+# Implicit line joining
+bicycles = ['trek', 
+            'cannondale', 
+            'redline',
+            'specialized']
+print(bicycles)
+Accessing Elements in a List
+bicycles = ['trek', 'cannondale', 'redline', 'specialized']
+print(bicycles[1])
+type(bicycles[1])
+bicycles = ['trek', 'cannondale', 'redline', 'specialized']
+print(bicycles[1].title())
+Index Positions Start at 0, Not 1
+bicycles = ['trek', 'cannondale', 'redline', 'specialized']
+print(bicycles[1])
+print(bicycles[2])
+print(bicycles[5])
+bicycles = ['trek', 'cannondale', 'redline', 'specialized']
+print(bicycles[-1])
+print(bicycles[-2])
+Using Individual Values from a List
+message = "My first bicycle was a " + bicycles[0].title() + "."
+print(message)
+ 
+Changing, Adding, and Removing Elements
+Modifying Elements in a List
+# This is what Mutable means
+motorcycles = ['honda', 'yamaha', 'suzuki']
+print(motorcycles)
+motorcycles[0] = 'ducati'
+print(motorcycles)
+Adding Elements to the End of a List
+motorcycles = ['honda', 'yamaha', 'suzuki']
+print(motorcycles)
+
+motorcycles.append('ducati')
+print(motorcycles)
+motorcycles = []
+
+motorcycles.append('honda')
+motorcycles.append('yamaha')
+motorcycles.append('suzuki')
+
+print(motorcycles)
+# Concatinating Lists
+
+num1 = [12, 423, 109]
+num2 = [99, -24]
+num = num1 + num2
+num 
+num = [2,4,7]
+num * 2 
+Inserting Elements into a List
+motorcycles = ['honda', 'yamaha', 'suzuki']
+print(motorcycles)
+
+motorcycles.insert(2, 'ducati')
+print(motorcycles)
+Removing Elements from a List
+Removing an Item Using the del Statement
+motorcycles = ['honda', 'yamaha', 'suzuki']
+print(motorcycles)
+
+del motorcycles[0]
+print(motorcycles)
+motorcycles = ['honda', 'yamaha', 'suzuki']
+print(motorcycles)
+
+del motorcycles[1]
+print(motorcycles)
+Removing an Item Using the pop() Method
+motorcycles = ['honda', 'yamaha', 'suzuki']
+print(motorcycles)
+
+popped_motorcycle = motorcycles.pop()
+
+print(motorcycles)
+print(popped_motorcycle)
+motorcycles = ['honda', 'yamaha', 'suzuki']
+last_owned = motorcycles.pop()
+
+print("The last motorcycle I owned was a " + last_owned.title() + ".")
+Popping Items from any Position in a List
+motorcycles = ['honda', 'yamaha', 'suzuki']
+first_owned = motorcycles.pop(0)
+
+print('The first motorcycle I owned was a ' + first_owned.title() + '.')
+Removing an Item by Value
+motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
+print(motorcycles)
+
+motorcycles.remove('ducati')
+print(motorcycles)
+motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
+print(motorcycles)
+
+too_expensive = 'ducati'
+motorcycles.remove(too_expensive)
+
+print(motorcycles)
+print("\nA " + too_expensive.title() + " is too expensive for me.")
+Organizing a List
+Sorting a List Permanently with the sort() Method
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+cars.sort()
+print(cars)
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+cars.sort(reverse=True)
+print(cars)
+Sorting a List Temporarily with the sorted() Function
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+print("Here is the original list:")
+print(cars)
+
+print("\nHere is the sorted list:")
+print(sorted(cars))
+
+print("\nHere is the original list again:")
+print(cars)
+Printing a List in Reverse Order
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+print(cars)
+
+cars.reverse()
+print(cars)
+Finding the Length of a List
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+len(cars)
+list() constructor function
+list([1,3,4,5])
+type(list([1,3,4,5]))
+list('Python')
+list() with enumerate()
+values = ['first', 'second', 'third', 'fourth']
+for index in range(len(values)):
+    value = values[index]
+    print(index, value)
+enumerate(values)
+list(enumerate(values)) # unpacking sequences
+values = ['first', 'second', 'third', 'fourth']
+for index, value in enumerate(values):
+    print(index, value)
+ 
+Avoiding Index Errors When Working with Lists
+#This will generate 'index out of range error'
+motorcycles = ['honda', 'yamaha', 'suzuki']
+print(motorcycles[3])
+motorcycles = ['honda', 'yamaha', 'suzuki']
+print(motorcycles[-1])
+#This will generate 'index out of range error'
+motorcycles = []
+
+len(motorcycles)
+
+print(motorcycles[-1])
+Making Numerical Lists
+Using the range() Function
+list(range(5))
+print(type(range(5)))
+# slicing (start,stop, step)
+list(range(20,2,-2))
+for value in range(1,5):
+    print(value)
+for value in range(1,6):
+    print(value)
+Using range() to Make a List of Numbers
+numbers = list(range(1,6))
+print(numbers)
+even_numbers = list(range(2,11,2))
+print(even_numbers)
+# Squares
+
+squares = []
+for value in range(1,11):
+    square = value ** 2
+    squares.append(square)
+print(squares)
+Simple Statistics with a List of Numbers
+digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+
+print(min(digits))
+
+print(max(digits))
+
+print(sum(digits))
+List Comprehensions
+squares = []
+
+for sq in range(1,11):
+    squares.append(sq**2)
+
+squares
+    
+ 
+squares = [sq**2 for sq in range(1,11)]
+print(squares)
+Working with part of a List
+Slicing a List
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(type(players[0:3]))
+print(type(players[0]))
+
+# list[start:stop:step]
+players = ['charles', 'martina', 'michael', 'florence', 'eli', 'hassan', 'naima']
+print(players[0:5:2])
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[0:4])
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[2:])
+Looping Through a Slice
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print("Here are the first three players on my team:")
+
+for player in players[:3]:
+    print(player.title())
+Copying a List
+my_foods = ['pizza', 'falafel', 'carrot cake']
+friend_foods = my_foods[:]
+
+print("My favorite foods are:")
+print(my_foods)
+
+print("\nMy friend's favorite foods are:")
+print(friend_foods)
+my_foods = ['pizza', 'falafel', 'carrot cake']
+
+# This doesn't work:
+friend_foods = my_foods
+
+friend_foods.append('ice cream')
+
+print("My favorite foods are:")
+print(my_foods)
+
+print("\nMy friend's favorite foods are:")
+print(friend_foods)
+my_drinks = ['shai', 'bebsy', '3er2soos']
+
+# This doesn't work:
+friend_drinks = my_drinks
+
+my_drinks.append('sa7lab')
+
+print("My favorite drinks are:")
+print(my_drinks)
+
+print("\nMy friend's favorite drinks are:")
+print(friend_drinks)
+my_drinks = ['shai', 'bebsy', '3er2soos']
+
+# this should work:
+friend_drinks = my_drinks.copy()
+
+my_drinks.append('sa7lab')
+
+print("My favorite drinks are:")
+print(my_drinks)
+
+print("\nMy friend's favorite drinks are:")
+print(friend_drinks)
+Tuples
+Defining a Tuple
+# Immutable list
+dimensions = (200, 50, 100)
+
+print(dimensions[0])
+print(dimensions[1])
+print(dimensions[2])
+# Error
+dimensions = (200, 50)
+dimensions[0] = 250
+two_d = ((0,19), (23,-4), (91,54.2))
+two_d 
+misc_d = (15, 'abc', (9,1), [1,2,3], {'def':15})
+misc_d
+print(type(misc_d[0]))
+print(type(misc_d[1]))
+print(type(misc_d[2]))
+print(type(misc_d[3]))
+print(type(misc_d[4]))
+Looping Through All Values in a Tuple
+ 
+dimensions = (200, 50, 92)
+for dimension in dimensions:
+    print(dimension)
+dimensions.count(200)
+dimensions.index(92)
+list() with enumerate()
+values = ('first', 'second', 'third', 'fourth')
+for index, value in enumerate(values):
+    print(index, value)
+Writing over a Tuple
+dimensions = (200, 50, 88)
+print("Original dimensions:")
+
+for dimension in dimensions:
+    print(dimension)
+
+dimensions = (400, 100)
+print("\nModified dimensions:")
+for dimension in dimensions:
+    print(dimension)
+Strings
+Really??
+
+Yes, strings are ordered sequences :)
+string = 'Hello Everyone'
+string[0]
+string[0] = 'M' # Error, strings are immutable sequences
+string.count('e')
+string.index('y')
+string.
+list(string)
+dir(string)
+[[Unordered Sequences]]
+Sets
+set1 = {1, 3, 4, 4, 6, 8, 9, 9}
+set1
+type(set1)
+my_list = ['one', 'one', 'two', 'three', 'three', 'four']
+my_list
+# Using the set() function
+# my_set = set(my_list)
+my_set
+list_again = list(set(my_list))
+list_again
+dir(set1)
+set1.add(15)
+set1.add(100)
+set1.add(100)
+set1.add(100)
+set1
+# initialize my_set
+my_set = {1, 3}
+print(my_set)
+my_set.update([4, 5], {1, 6, 8})
+print(my_set)
+my_set.discard(4)
+print(my_set)
+# Set union method
+# initialize A and B
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+
+# use | operator UNION
+# Output: {1, 2, 3, 4, 5, 6, 7, 8}
+print(A | B) # A U B
+print(A.union(B))
+print(B.union(A))
+# Intersection of sets
+# initialize A and B
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+
+# use & operator INTERSECTION
+# Output: {4, 5}
+print(A & B)
+print(A.intersection(B))
+print(B.intersection(A))
+# Difference of two sets
+# initialize A and B
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+
+# use - operator on A
+# Output: {1, 2, 3}
+print(A - B)
+print(A.difference(B))
+# !=
+print(B - A)
+print(B.difference(A))
+# Symmetric difference of two sets
+# initialize A and B
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+
+# use ^ operator
+# Output: {1, 2, 3, 6, 7, 8}
+print(A ^ B)
+print(A.symmetric_difference(B))
+# No Index but you can loop and test
+
+for num in A:
+    print(num)
+print (2 in A)
+print (2 in B)
+# You can also use the following methods with sets
+# enumerate()
+# max()
+# min()
+# len()
+# sum()
+# sorted()
+ 
+Dictionaries
+# A dictionary is a collection of a key-value pairs.
+human1 = {'height':180, 'weight':80, 'eye-color':'green', 'language':'mongolian'}
+print(human1)
+print(type(human1))
+# human1 vs print(human1)
+human1
+dir(human1)
+human1.items()
+print(human1.keys())
+print(human1.values())
+len(human1)
+human1['sex'] = 'male'
+human1
+# Modify a value
+human1['weight'] = 82
+human1
+my_set = set(human1.values())
+my_set
+del human1['sex']
+human1
+human2 = {'hight': 160,
+ 'weight': 52,
+ 'eye-color': 'brown',
+ 'language': 'british',
+ 'sex': 'female'}
+human2
+# list values
+human3 = {'name':'ahmed','age':45,'language':['arabic','english']}
+human3['language'][1]
+human3['language'][0]
+human4 = {'name':'ahmed','age':45,'language':['arabic','english'], 19:19}
+# nested dictionaries
+# nesteddict = {1:{},
+#           2:{},
+#           3:{}
+#          }
+
+humans = {1:{'name': 'John', 'age': '27', 'sex': 'Male'},
+          2:{'name': 'Marie', 'age': '22', 'sex': 'Female'},
+          3:{'name': 'shawkat', 'age': '62', 'sex': 'Male'}
+         }
+
+humans
+humans[1]['age']
+# humans[1]['name']
+print(humans[1]['name'],humans[2]['name'],humans[3]['name'])
+humans[3]['name'] = 'rabso'
+humans[3]['age'] = '100'
+humans[3]['sex'] = 'powder'
+humans
+humans[4] = {'name': 'Gamal', 'age': '47', 'married':'No'}
+humans
+del humans[4]['married']
+humans
+del humans[2], humans[4]
+humans
+ 
+[Optional] Other Specialized Container Datatypes (Collections)
+Specialized container datatypes providing alternatives to Python’s general purpose built-in containers, dict, list, set, and tuple.
+
+Python Collections
+
+Python Collections
+String - A Deeper Look
+Format Specification Mini-Language
+
+format() method
+'I am Ahmed and I am 54 years old'
+name = 'Ahmed'
+age = 54
+
+print('I am', name, ' and I am', age)
+# {} as 'replacement fields'
+'abc is {} def is {} hij {}'.format('c1', 365, (9,2))
+Replacement fields have the following format:
+
+{<argument>!<conversion>:<format-specification}
+
+# positional arguments
+'abc is {0} def is {2} hij {1}'.format(1,2,3)
+'abc is {0} def is {2} hij {1} pos {1}'.format(1,2,3)
+# replacement fields with keyword arguments
+'abc is {a} def is {b} hij {c}'.format(a=1,b=2,c=3)
+# keywargs replacement fields in different order
+'abc is {a} def is {c} hij {b}'.format(b=1,a=2,c=3)
+# replacement fields can reference attributes and elements of positional arguments
+'abc is {a[3]} def is {b[0]}'.format(a='hElLo',b=['Ahmed', 'Sami'])
+'abc is {a.title()} def is {b[0]}'.format(a='hElLo',b=['Ahmed', 'Sami'])
+# replacement fields with conversion: 'r' [repr()], 's' [str()] or 'a' [ascii()]
+'abc is {a!s}'.format(a='Pythön')
+# replacement fields with format specification
+# float precision
+'The value of pi is: {0:.4f}'.format(3.14159265)
+# replacement fields with format specification
+# float precision
+'we can also zero-pad integers like this: {:03}'.format(20)
+
+Formatting f-strings
+txt1 = "My name is {1}, I'm {0}".format("John",  36)
+txt1
+name = 'Ahmed'
+age = 45
+
+txt1 = f"My name is {name}, I am {age}"
+txt1
+ 
+f'{17.489:.2f}' # float
+f'{10:03d}' # int
+f'{65:c} {97:c}' # chr
+from decimal import Decimal
+f'{Decimal("10000000000000000000000000.0"):.3f}'
+f'{Decimal("10000000000000000000000000.0"):.2E}'
+# grouping digits
+f'{12345678:,d}'
+# grouping digits
+f'{123456.78:,.2f}'
+# you can also format +ve and -ve signs, left, center & right aligntment, field width, etc. 
+# you can also use functions and methods inside replacement fields
+a = 'hElLo'
+b = ['ma7shi', 'falafel', 'kebda']
+
+f"abc is {a.upper()} def is {sorted(b)} and also try {a.replace('E','A').upper()}"
+Splitting and Joining String
+# str split() method
+some_text = "My favourites hobbies are chess, estimation, reading and vlogging"
+splitted_text = some_text.split(' ')
+splitted_text
+some_text = "chess, estimation, computers, reading, handball, smoking"
+splitted_text = some_text.split(',')
+splitted_text
+lines = """This is line 1
+This is line2
+This is line3"""
+lines
+lines.splitlines()
+lines.splitlines(True)  # to keep the line breaks
+# str join text 
+text_list = ['chess', 'estimation', 'computers', 'reading', 'handball', 'smoking']
+','.join(text_list)
+# partition() divides string at first occurence of a char
+# thus returns a tuple
+print('Amanda: 89, 97, 92 and also mike: 30, 11'.partition(': '))
+Character Checks
+'-27'.isdigit()
+'27'.isdigit()
+'A9876'.isalnum()
+'123 Main Street'.isalnum()
+Raw String
+file_path = 'C:\\MyFolder\\MySubFolder\\MyFile.txt'
+file_path
+print(file_path)
+file_path = r'C:\MyFolder\MySubFolder\MyFile.txt'
+file_path
+print(file_path)
+ 
+if...else and if...elif...else Statements
+car = 'bmw'
+
+if car == 'bmw':
+    print ('Yes it is')
+car = 'bmw'
+
+if True:
+    print ('Yes it is')
+# if <conditional test>:
+#    <do something>
+#else:
+#    <do something else>
+# if (bool(<something>) == True):
+#     do something...
+# why does this still work? or does it?
+
+car = 1
+
+if car:
+    print ('Yes it is')
+if 1:
+    print('Nonzero values are true, so this will print')
+if 0:
+    print('Zero is false, so this will not print')
+# consider standardizing string when used in conditional tests (i.e case, stripping, etc.)
+# remember that 'is', 'is not', 'not', 'in', 'and', 'or', chaining ops can all be used for comparison
+age = int(input('How old are you?'))
+
+if 60 >= age >= 45:
+    print("You are still young!!")
+        
+# if...else
+age = int(input('How old are you?'))
+
+if 60 >= age >= 45:
+    print("You are still young!!")
+else:
+    print("Sorry!")
+# if...elif..else chain
+age = int(input('How old are you?'))
+
+if 60 >= float(age) >= 45:
+    print("You are still young!!")
+elif age < 45:
+    print("Too young ya man!")
+else:
+    print("A bit old")
+grade = 80
+
+if grade >= 90:
+    print('A')
+elif grade >= 80:
+    print('B')
+elif grade >= 70:
+    print('C')
+elif grade >= 60:
+    print('D')
+else:
+    print('F')
+# multiple tests
+
+age = int(input('How old are you?'))
+country = input('Enta mneen yaad?')
+    
+if 60 >= float(age) >= 45 and country.lower() == 'egypt':
+    print("kafa2a")
+else:
+    print("ahlan")
+# try flags
+
+country = input('Enta mneen yaad?')
+gender = input('Enta ragel yaad?')
+
+flags = ''
+
+if country.lower() == 'egypt':
+    flags += 'p'
+#    print (flags)
+if gender.lower() == 'male':
+    flags += 'm'
+#    print (flags)
+else:
+    flags += 'f'
+
+if flags == 'pm':
+    print ('Ahlan beek')
+else:
+    print ('Ahlan beeky')
+# 
+# nesting if stmnt
+
+# if 60 >= float(age) >= 45 and country.lower() == 'egypt':
+#     print("kafa2a")
+#  else:
+#     print("ahlan")
+
+#
+
+age = int(input('How old are you?'))
+country = input('Enta mneen yaad?')
+
+if 60 >= float(age) >= 45:
+    if  country.lower() == 'egypt':
+        print ("You are an Egyptian yound man")
+    else:
+        print ("You are a young man bas")
+else:
+    print ("mashi")
+# Conditional Expressions
+
+grade = 87
+
+if grade >= 60:
+    result = 'Passed'
+else:
+    result = 'Failed'
+
+result
+'Passed' if grade >= 60 else 'Failed'
+'even' if int(input('Enter an integer:')) % 2 == 0 else 'odd'
+[2,4,6] if int(input('Enter an integer:')) % 2 == 0 else [1,3,5]
+# if..elif..else expression
+grade = 90
+
+# if grade >= 90:
+#     print('A')
+# elif grade >= 80:
+#     print('B')
+# elif grade >= 70:
+#     print('C')
+# elif grade >= 60:
+#     print('D')
+# else:
+#     print('F')
+
+'A' if grade >= 90 else ( 'B' if grade >= 80 else ( 'C' if grade >= 70 else ( 'D' if grade >= 60 else 'F')) )
+# list comprehensions
+
+l = [i * 10 if i % 2 == 0 else i for i in range(1,15)]
+l
+# pass statement
+# to change the if stmnt later
+
+if True:
+    pass
+ 
+for and while Loops
+while statement
+# cont. if stmnt logic
+
+# while True:
+#    <do something then repeat UNTIL condition is False >
+
+counter = 1
+
+while counter < 90:
+    counter += 3
+
+counter
+counter = 1
+
+while counter < 90:
+    print(f'[{counter}', end=' ')
+    counter *= 3
+    print (f'{counter}]', end=' ')
+
+#counter
+my_list = ['foul', 'flafel', 'batates', 'pickles', 'koshary', 'betengan']
+
+while len(my_list) > 0:
+    print(my_list[-1])
+    my_list.pop()
+    print(my_list)
+    print('--')
+    
+print('---\nalf hana ya brens:)')
+# combine while and if
+# why use a break statement?
+
+#user_input = ''
+retries = 1
+
+while retries <= 3:
+    user_input = input('type a number: ')
+    if not user_input.isdigit():
+        retries += 1
+    else:
+        print(
+            f'Finally! the square root of the number you entered is {(int(user_input)**(1/2)):.4f}'
+        )
+        break
+
+if retries > 2:
+    print('rabbena yehdeek')
+# combine while and if
+# why use a break statement?
+
+#user_input = ''
+retries = 1
+
+while True:
+    user_input = input('type a number: ')
+    if not user_input.isdigit():
+        retries += 1
+    else:
+        print(
+            f'Finally! the square root of the number you entered is {(int(user_input)**(1/2)):.4f}'
+        )
+        break
+
+if retries > 2:
+    print('rabbena yehdeek')
+for Loop
+# iterate through iterable
+foods = ['foul', 'falafel', 'batates', 'pickles', 'koshary', 'betengan']
+
+for food in foods:
+    print(food)
+some_text = 'This is a string'
+
+for letter in some_text:
+    print(f'{letter}')
+foods_set = {'foul', 'falafel', 'batates', 'pickles', 'koshary', 'betengan'}
+foods_tuple = ('foul', 'flafel', 'batates', 'pickles', 'koshary', 'betengan')
+foods_dictionary = {
+    '1': 'foul',
+    '2': 'falafel',
+    '3': 'batates',
+    '4': 'pickles',
+    '5': 'koshary',
+    '6': 'betengan'
+}
+
+for food in foods_set:
+    print(food)
+
+print('-----')
+# for food in foods_tuple:
+#     print(food)
+# print('----')
+
+for index, food in enumerate(foods_tuple):
+    print(index, food)
+for food in enumerate(foods_dictionary.values()):
+    print(food[1])
+# (0, ('1', 'foul'))
+
+for counter, (index, value) in list(enumerate(foods_dictionary.items())):
+    print (f'{index} {value}')
+ 
+for index, item in list(enumerate(foods_dictionary.values())):
+    print(index, item)
+for counter, (index, food) in enumerate(foods_dictionary.items()):
+    print(index, food)
+# range()
+for counter in range(1,22):
+    if counter % 2 != 0:
+        print(f'{counter} is odd')
+    else:
+        print(f'{counter} is even')
+# break statement 
+foods = ['foul', 'falafel', 'batates', 'pickles', 'koshary', 'betengan']
+
+for food in foods:
+
+    if food == 'pickles':
+        print('tamam keda :)')
+        break
+    print(food)
+# nested for with if
+# prime numbers
+
+for n in range(2, 10):
+    for x in range(2, n):
+        if n % x == 0:
+            print(n, 'equals', x, '*', n // x)
+            break
+    else:
+        # loop fell through without finding a factor
+        print(n, 'is a prime number')
+# continue statement
+# range()
+for counter in range(1,22):
+    if counter % 2 == 0:
+        print(f'{counter} is even')
+    else:
+        print(f'{counter} is odd')
+for counter in range(1,22):
+    if counter % 2 == 0:
+        print(f'{counter} is even')
+        continue
+    print(f'{counter} is odd')
+for letter in "This is a simple string":
+    if letter == 'i':
+        continue
+#         pass
+    print(letter)
+# else statement with for?
+for num in range (20):
+    if num % 3 == 0:
+        print(f'{num} is dividable by 3')
+else:
+    print(num)
+ 
+Example: Word Count
+text = ('this is sample text with several words '
+        'this is more sample text with some different words '
+        'that is also another text with other different words'
+       )
+text
+text.split()
+word_counts = {}
+word = 'this'
+
+if word in word_counts:
+    word_counts[word] += 1    
+else:
+    word_counts[word] = 1
+
+print(word_counts)
+word_counts = {}
+
+for word in text.split():
+    if word in word_counts:
+        word_counts[word] += 1    
+    else:
+        word_counts[word] = 1
+
+# print(word_counts)
+# print(word_counts.items())
+
+for word, count in sorted(word_counts.items()):
+    print(f'{word:<12} : {count}')
+    
+print(len(word_counts))
+ 
+Python Standard Library Module collections
+from collections import Counter
+text = ('this is sample text with several words '
+        'this is more sample text with some different words')
+print(type(text.split()))
+counter = Counter(text.split())
+counter
+for word, count in sorted(counter.items()):
+    print(f'{word:<12}{count}')
+print('Number of unique keys:', len(counter.keys()))
+%%timeit
+pass
+Functions
+# block of code to perform a task
+ 
+# block of code to perform a task
+name = input('اسمك ايه ياض؟: ')
+print(f'راجل يا {name}')
+# function definition
+def greeting():
+    name = input('What is your name?')
+    print(f'Welcome to Python {name}')
+# function call
+greeting()
+# passing arguments
+def greeting(username):
+    print(f'Welcome to Python Mr. {username.title()}!')
+# call 
+greeting('ahmed')
+# passing multiple arguments
+def pets(owner_name, pet_name):
+    print(f'Hi {owner_name.title()} please take care of {pet_name.title()}!')
+pets('ahmed', 'Sultan')
+pets('sultan', 'ahMed')
+# keyward arguments
+pets(pet_name='sultan', owner_name='ahmed')
+# default values
+
+pets('ahmed') # error
+def pets(owner_name, pet_name = 'sultan'):
+    print(f'Hi {owner_name.title()} please take care of {pet_name.title()}!')
+pets('ahmed')
+# return values
+# what is the type of the output?
+def pets(owner_name = 'ahmed', pet_name = 'sultan'):
+    advice = f'Hi {owner_name.title()} please take care of {pet_name.title()}!'
+    return advice
+pets()
+type(pets())
+# which default is considered?
+
+def pets(owner_name = '', pet_name = ''):
+    advice = f'Hi {owner_name.title()} please take care of {pet_name.title()}!'
+    return advice
+pets('ahmed')
+# optional arguments
+
+def fullname(fname = 'x', mname = 'y', lname = 'z'):
+    return f'Your full name is: {fname.title()} {mname.title()} {lname.title()}-'
+fullname ('magnus','جادالحق','carlsen')
+fullname ('magnus')
+# opt arg must be defaulted and be last arg in list
+
+def fullname(fname, lname,  mname = ''):
+    if mname:
+        fname =  f'Your full name is: {fname.title()} {mname.title()} {lname.title()}-'
+    else:
+        fname =  f'Your full name is: {fname.title()} {lname.title()}-'
+    return fname
+
+fullname ('magnus','جادالحق','carlsen')
+fullname('magnus','carlsen')
+# python style code recommends beginning the code block with a docstring """func desc"""
+
+def fullname(fname, lname,  mname = ''):
+    """prints out a fullname for a given triplet firstname, middlename and last name
+    with an optional parameter 'middlename'"""
+    if mname:
+        fname =  f'Your full name is: {fname.title()} {mname.title()} {lname.title()}-'
+    else:
+        fname =  f'Your full name is: {fname.title()} {lname.title()}-'
+    return fname
+fullname??
+ 
+# func help - can we use shift-tab like with built-in functions and methods?
+#print()
+print??
+fullname?
+fullname??
+# arbitrary argument lists
+def average(*args):
+    return sum(args) / len(args)
+
+average(1, 2, 3, 4, 5, 56, 878, 23)
+# what happens to parameters defined in the func after calling it?
+# local scope vs global scope
+# local scope
+
+x = 10 # global variable within this ipython script scope
+
+# functions can reference global variables
+def access_global():
+    print('x printed from access_global:', x) 
+access_global()
+# if a variable wasn't defined within a function python will look for it in the global variables
+# however, unline other languages, a function cannot modify a global variable!
+def try_to_modify_global():
+    x = 3.5
+    print('x printed from try_to_modify_global:', x)
+try_to_modify_global()
+x
+# you can resolve this by using the 'global' statement
+def modify_global():
+    global x;
+    x = 'hello'
+    print('x printed from modify_global:', x)
+modify_global()
+x
+# be careful of the function 'shadow' of death
+type(sum)
+sum = 10 + 5
+sum
+sum([10, 5])
+type(sum)
+# more on passing parameters
+# are parameters passed value reference or value
+x = 13
+id(x)
+def cube(number):
+    print('id(number):', id(number))
+    return number ** 3
+cube(x)
+cube(13) # welcome to big data :)
+# what about immutable objects?
+def cube(number):
+    print('id(number) before modifying number:', id(number))
+    number **= 3
+    print('id(number) after modifying number:', id(number))
+    return number
+cube(x)
+ 
+# map() function
+# def cuber(x):
+#     return x ** 3
+
+# my_list = [2,3,4]
+
+# result = map(cuber,my_list)
+# print(list(result))
+
+## equivalent to :
+
+newresult = []
+for item in my_list:
+    newresult.append(item ** 3)
+print(newresult)
+# === #
+# anonymous functions = lambda expressions
+# lambda <arguments> : <expression>
+lambda a, b, c: a + b - c +  10
+# lambda a, b, ..., n: <expression> 
+# any number of arguments
+# the <expression> is the return value
+# all must be in a single line
+f = lambda x: x ** 2 # lambda's name is 'f' and it takes one arg 'x' and it squares it
+
+f(2)
+f = lambda x, y: 3 * (x ** 2) + 2 * y - 5 # lambda can also take multiple args
+
+f(2,3)
+ 
+# remember this?
+
+my_list = [2,3,4]
+
+# def cuber(x):
+#     return x ** 3
+# result = map(cuber,my_list)
+# print(list(result))
+
+result = list(map(lambda x: x ** 3, my_list))
+result
+the_greats = ['machael jackson', 'ahmed sami', 'magdi shatta', 'alireza firouzja', 'marwan pablo']
+# the_greats.sort(key=len)
+the_greats.sort()
+
+the_greats
+for name in the_greats:
+    print(name.split(' ')[0])
+    
+
+# the_greats = ['machael jackson', 'ahmed sami', 'magdi shatta', 'alireza firouzja', 'marwan pablo']
+# the_greats.sort(key=lambda name: name.split(' ')[0])
+
+# the_greats
+# one level deeper
+def myfunc(n):
+    return lambda a : a * n
+
+
+mydoubler = myfunc(2)
+
+# type(mydoubler)
+
+print(mydoubler(11))
+# remember this
+# lambda x, y: 3 * (x ** 2) + 2 * y - 5
+
+def quadratic(a,b,c):
+    return lambda x: a * (x ** 2) + b * x - c
+
+# f = quadratic(2,3,5)
+# f(2)
+quadratic(2,3,5)(2)
+# same as but not as readable
+
+quadratic(2,3,5)(2)
+ 
+ 
+Intro to Object-Oriented Programming
+class ClassName:
+    <statement-1>
+    .
+    .
+    .
+    <statement-N>
+class Trivial:
+    pass
+t1 = Trivial()
+print(type(t1))
+dir(t1)
+t1.name = 'sameh'
+t1.name
+dir(t1)
+t2 = Trivial()
+t2.name = 'mohsen'
+print(t2.name, t1.name)
+name ='ahmed'
+print(t2.name, t1.name, name)
+class Dog:
+    def bark(): # obj.bark() method
+        print('haw haw haw')
+dog1 = Dog()
+dir(dog1)
+Dog.bark()
+type(dog1)
+dog1.bark()
+# namespaces
+class Dog:
+    def bark(self): # obj.bark() method
+        print('haw haw haw')
+dog1 = Dog()
+Dog.bark(dog1)
+dog1.bark()
+dog2 = Dog()
+dog2.bark()
+ 
+class Dog:
+    def __init__(self):
+        self.name = 'rex'
+        
+    def bark(self): # obj.bark() method
+        print('haw haw haw')
+dog1 = Dog()
+dog1.name
+dog2 = Dog()
+dog2.name
+class Dog:
+    def __init__(self, name):
+        self.name = name
+        
+    def bark(self): # obj.bark() method
+        print('haw haw haw')
+dog1 = Dog('simba')
+dog1.name
+dog2 = Dog('mesh simba')
+dog2.name
+dog1.name = 'Joy'
+dog2.name
+dog1.name
+class Dog:
+    
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def bark(self):
+        print("haw haw haw")
+    def set_age(self, age):
+        self.age = age
+dog1 = Dog('zeft', 2)
+dog1.set_age(3)
+dog1.age
+ 
+class Dog:
+    
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def bark(self):
+        print("haw haw haw")
+    def set_age(self, age):
+        self.age = age
+   
+    @property
+    def name(self):
+        return self._name
+    
+    @name.setter
+    def name(self, name):
+        if not name.isalpha():
+            raise ValueError('Dog name must be letters only')
+        self._name = name
+dog1 = Dog('juva', 2)
+dog2 = Dog('abc1',2)
+dog1.name
+dog1.name = 'mory'
+dog1.name
+dog1.name = 'mory0'
+ 
+class Account:
+    """This class is a base class for bank accounts
+    that is created by passing name and balance"""
+    def __init__(self, name, balance):
+        """ to initialize basic info"""
+        self.name = name
+        self.balance = balance
+    def deposit(self, amount):
+        self.balance += amount
+    def withdraw(self, amount):
+        self.balance -= amount
+acct1 = Account('maher', 230.7)
+dir(acct1)
+acct1.balance
+acct1.deposit(-12)
+class Account:
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+        else:
+            raise ValueError('amount must be positive.')
+    def withdraw(self, amount):
+        if amount > 0:
+            self.balance -= amount
+my_acct = Account('ahmed', 230.15)
+my_acct.deposit(-12)
+class Account:
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
+        self.__ssn = '123-45-6789'
+    def deposit(self, amount:'must be positive value') -> 'insert money':
+        if amount > 0:
+            self.balance += amount
+        else:
+            raise ValueError('amount must be positive.')
+    def withdraw(self, amount):
+        if amount > 0:
+            self.balance -= amount
+acct2 = Account('magdy', 300)
+dir(acct2)
+acct2._Account__ssn = '000000'
+acct2
+print(acct2)
+myr = range(1,178,3)
+myr
+print(myr)
+myl = list([1,2,3])
+myl
+print(myl)
+st = 'hello'
+x = 10
+st + x
+x + st
+st + st
+dir(acct2)
+print(acct2)
+class Account:
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
+        self.__ssn = '123-45-6789'
+    def deposit(self, amount:'must be positive value') -> 'insert money':
+        if amount > 0:
+            self.balance += amount
+        else:
+            raise ValueError('amount must be positive.')
+    def withdraw(self, amount):
+        if amount > 0:
+            self.balance -= amount
+    def __repr__(self):
+        return f'{{self.name} currently has {self.balance} in his account}'
+acct2 = Account('yehia', 900)
+acct2
+print(acct2)
+acct1 = Account('nadeem', 100)
+acct1 + acct2
+class Account:
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
+        self.__ssn = '123-45-6789'
+    def deposit(self, amount:'must be positive value') -> 'insert money':
+        if amount > 0:
+            self.balance += amount
+        else:
+            raise ValueError('amount must be positive.')
+    def withdraw(self, amount):
+        if amount > 0:
+            self.balance -= amount
+    def __repr__(self):
+        return f'{self.name} currently has {self.balance} in his account'
+    def __add__(self, other):
+        return f'{self.name} and {other.name} both have a total of ', self.balance + other.balance
+acct2 = Account('yehia', 900)
+acct1 = Account('nadeem', 100)
+acct1 + acct2
+ 
+# inheritance
+class Employee:
+    def __init__(self, fname, lname):
+        self.fname = fname
+        self.lname = lname
+        self.email = fname + '.' + lname + '@email.com'
+emp1 = Employee('mohamed', 'tharwat')
+emp1.email
+class Teacher(Employee):
+    pass
+tr1 = Teacher('hany', 'hassan')
+tr1.email
+class Teacher(Employee):
+    def __init__(self, fname, lname):
+        super().__init__(fname, lname)
+        self.email = 't-' +fname + '.' + lname + '@email.com'
+tr1 = Teacher('ahmed', 'adaweyya')
+tr1.email
+print(help(Teacher))
+ 
+ 
+somestr = 'hEllo mR. aHmed !'
+newstrlist = []
+for letter in somestr:
+
+    if 97 <= ord(letter) <= 122:
+
+        newstrlist.append(chr(ord(letter) - 32))
+    else:
+        newstrlist.append(letter)
+newstrlist
+''.join(newstrlist)
+ 
+class Newstring:
+    """bla bla"""
+    def __init__(self, nstr):
+        """bla bla bardo"""
+        self.length = len(nstr)
+        self.uppercase
+        self.nstr = nstr
+        
+    def uppercase(self):
+        """bla bla"""
+        somestr = self.nstr
+        newstrlist = []
+        for string in somestr:
+       
+            if 97 <= ord(string) <= 122:
+       
+                newstrlist.append(chr(ord(string) - 32))
+            else:
+                newstrlist.append(string)
+       
+        return ''.join(newstrlist)
+newstr = Newstring('string')
+print(newstr.length)
+print(newstr.uppercase())
+ 
+# card.py
+"""Card class that represents a playing card and its image file name."""
+
+class Card:
+    FACES = ['ace', '2', '3', '4', '5', '6',
+             '7', '8', '9', '10', 'jack', 'queen', 'king']
+    SUITS = ['hearts', 'diamonds', 'clubs', 'spades']
+
+    def __init__(self, face, suit):
+        """Initialize a Card with a face and suit."""
+        self._face = face
+        self._suit = suit
+
+    @property
+    def face(self):
+        """Return the Card's self._face value."""
+        return self._face
+
+    @property
+    def suit(self):
+        """Return the Card's self._suit value."""
+        return self._suit
+
+    @property
+    def image_name(self):
+        """Return the Card's image file name."""
+        return str(self).replace(' ', '_') + '.png'
+
+    def __repr__(self):
+        """Return string representation for repr()."""
+        return f"Card(face='{self.face}', suit='{self.suit}')"     
+
+    def __str__(self):
+        """Return string representation for str()."""
+        return f'{self.face} of {self.suit}'
+
+    def __format__(self, format):
+        """Return formatted string representation."""
+        return f'{str(self):{format}}'
+from card import Card
+from deck import DeckOfCards
+
+deck_of_cards = DeckOfCards()
+
+# Enable Matplotlib in IPython
+%matplotlib
+
+# Create the Base `Path` for Each Image
+from pathlib import Path
+
+path = Path('.').joinpath('card_images')
+
+# Import the Matplotlib Features
+import matplotlib.pyplot as plt
+
+import matplotlib.image as mpimg
+
+# Create the `Figure` and `Axes` Objects
+figure, axes_list = plt.subplots(nrows=4, ncols=13)
+
+# Configure the `Axes` Objects and Display the Images
+for axes in axes_list.ravel():
+    axes.get_xaxis().set_visible(False)
+    axes.get_yaxis().set_visible(False)
+    image_name = deck_of_cards.deal_card().image_name
+    img = mpimg.imread(str(path.joinpath(image_name).resolve()))
+    axes.imshow(img)
+
+# Maximize the Image Sizes
+figure.tight_layout()
+
+### Shuffle and Re-Deal the Deck
+deck_of_cards.shuffle()
+
+for axes in axes_list.ravel():
+    axes.get_xaxis().set_visible(False)
+    axes.get_yaxis().set_visible(False)
+    image_name = deck_of_cards.deal_card().image_name
+    img = mpimg.imread(str(path.joinpath(image_name).resolve()))
+    axes.imshow(img)
+from deck import DeckOfCards
+ 
+deck_of_cards = DeckOfCards()
+type(deck_of_cards)
+deck_of_cards.shuffle()
+print(deck_of_cards)
+from IPython.display import Image
+card = deck_of_cards.deal_card()
+print(card)
+Image(filename='card_images/'+card.image_name) 
+from IPython.display import Image
+card = deck_of_cards.deal_card()
+Image(filename='card_images/'+card.image_name) 
+ 
+Modules, Packages, Libraries and Frameworks
+Brief Tour of the Standard Library - Part I
+Brief Tour of the Standard Library - Part II
+
+# import sound.effects.echo
+# sound.effects.echo.echofilter(input, output, delay=0.7, atten=4)
+# equivalent to
+# from sound.effects import echo
+# echo.echofilter(input, output, delay=0.7, atten=4)
+# equivalent to
+# from sound.effects.echo import echofilter
+# echofilter(input, output, delay=0.7, atten=4)
+ 
+# Python Standard Library
+###############
+# os
+import os 
+dir(os)
+os.getlogin()
+os.getcwd()
+os.system('mkdir today')
+os.listdir()
+###############
+# glob
+import glob
+glob.glob('*.py')
+###############
+# re
+import re
+re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest f2ast1est')
+###############
+# sys
+import sys
+print(sys.argv)
+print(sys.ps3)
+dir(sys)
+###############
+# datetime
+from datetime import date
+now = date.today()
+now
+now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")
+# dates support calendar arithmetic
+birthday = date(1964, 7, 31)
+age = now - birthday
+age.days
+###############
+# math
+import math
+dir(math)
+math.cos(math.pi)
+math.log(1024, 2)
+math.gcd(35,105)
+import statistics
+dir(statistics)
+data = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
+print('mean: ', statistics.mean(data))
+print('median: ', statistics.median(data))
+print('variance: ', statistics.variance(data))
+###############
+# decimal
+from decimal import Decimal 
+x = y = z  = 0.1
+s = x + y + z
+s
+0.300000000000004 ==  0.300000000000005
+x = Decimal('0.1')
+y = Decimal('0.1')
+z = Decimal('0.1')
+
+s = x + y + z
+
+print(s)
+x = Decimal((0, (3, 1, 4), -1))
+x
+Decimal((0, (3, 1, 4), -2)) == Decimal('3.14')
+###############
+# typing
+import typing
+def scale(scalar, vector) :
+    return [scalar * num for num in vector]
+
+new_vector = scale(2.0, [1.0, -4.2, 5.4])
+Vector = list[float]
+
+def scale(scalar: float, vector: Vector) -> Vector:
+    return [scalar * num for num in vector]
+
+# typechecks; a list of floats qualifies as a Vector.
+new_vector = scale(2.0, [1.0, -4.2, 5.4])
+type(new_vector)
+ 
+import array
+a = array.array('l', [1,2,3,4,5])
+a[0]
+type(a)
+###############
+# random
+import random
+random.seed(10)
+random.random()
+random.uniform(9,189)
+random.randrange(0,100,3)  
+random.choice(['win', 'lose', 'draw'])  
+il = [1,2,3,4,5]
+sl = ['a','b','c','d','e']
+
+random.shuffle(il)
+random.shuffle(sl)
+
+print(il)
+print(sl)
+random.sample([10, 20, 30, 40, 50, 'a', 'b', 'c', 'd', 'e'], k=7) 
+random.choices(['red', 'black', 'green'], [18, 1, 5], k=6)
+ 
+##############
+# collections
+import collections
+Point = collections.namedtuple('Point', ['x','y'])
+p1 = Point(13, 99)
+p1[0]
+p1.x
+ 
+######################
+# string
+import string
+import string
+
+# string module constants
+print(string.ascii_letters)
+print(string.ascii_lowercase)
+print(string.ascii_uppercase)
+print(string.digits)
+print(string.hexdigits)
+print(string.whitespace)  # ' \t\n\r\x0b\x0c'
+print(string.punctuation)
+from string import Template
+t = Template('${village}folk send $$10 to $cause.')
+t.substitute(village='Nottingham', cause='the ditch fund')
+ 
+Working with Files
+cat pi_digits.txt
+# the 'open()' functions returns an object representing the file
+# The keyword 'with' closes the file once access to it is no longer needed
+# you can also use the 'close()' function to close the file
+# use the 'read()' method in the second line of our program to 
+# read the entire contents of the file and store it as one long string in contents
+
+with open('pi_digits.txt') as file_object:
+    contents = file_object.read()
+print(contents)
+type(file_object)
+# you can use rstrip to remove the extra blank line
+with open('pi_digits.txt') as file_object:
+    contents = file_object.read()
+print(contents.rstrip())
+# read line by line
+filename = 'pi_digits.txt'
+
+with open(filename) as file_object:
+    lcounter = 1
+    for line in file_object:
+        print(lcounter, ': ', line.rstrip())
+        lcounter += 1
+# readlines() method makes a list of lines
+filename = 'pi_digits.txt'
+
+with open(filename) as file_object:
+    lines = file_object.readlines()
+    for line in lines:
+        print(line.rstrip())
+# working with file contents
+# concatinate the contents
+
+filename = 'pi_digits.txt'
+
+with open(filename) as file_object:
+    lines = file_object.readlines()
+
+pi_string = ''
+for line in lines:
+    pi_string += line.strip()
+
+print(pi_string)
+print(len(pi_string))
+filename = 'pi_million_digits.txt'
+
+with open(filename) as file_object:
+    lines = file_object.readlines()
+
+pi_string = ''
+for line in lines:
+    pi_string += line.strip()
+
+print(f'{pi_string[:52]}...')
+print(len(pi_string))
+# birthday
+filename = 'pi_million_digits.txt'
+
+with open(filename) as file_object:
+    lines = file_object.readlines()
+
+pi_string = ''
+for line in lines:
+    pi_string += line.strip()
+
+birthday = input("Enter your birthday, in the form mmddyy: ")
+if birthday in pi_string:
+    print("Your birthday appears in the first million digits of pi!")
+else:
+    print("Your birthday does not appear in the first million digits of pi.")
+%cat programming.txt
+# writing to a file
+filename = 'programming.txt'
+
+with open(filename, 'w') as file_object:
+    file_object.write("I also love finding meaning in large datasets.\n")
+    file_object.write("I love creating apps that can run in a browser.\n")
+%cat programming.txt
+ 
+############
+# csv 
+csv — CSV File Reading and Writing
+
+Common Format and MIME Type for Comma-Separated Values (CSV) Files
+
+cat names.csv
+import csv
+with open('./names.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        print(row['fname'], row['lname'], row['country'])
+type(row)
+# access modes r, w, a, r+, w+, etc.
+
+with open('names2.csv', 'a', newline='') as csvfile:
+    fieldnames = ['fname', 'lname','age','sex','country']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    writer.writeheader()
+    writer.writerow({'fname': 'hammo', 
+                     'lname': 'Bika', 
+                     'age': '34', 
+                     'sex': 'male', 
+                     'country': 'egypt'})
+    
+    writer.writerow({'fname': 'alissa', 
+                     'lname': 'abdrabbo', 
+                     'age': '55', 
+                     'sex': 'female', 
+                     'country': 'lebanon'})
+cat names2.csv
+cat names_tabs.csv
+# dialect
+# error
+with open('./names_tabs.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        print(row['fname'], row['lname'])
+# dialect
+with open('./names_tabs.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile, delimiter='	')
+    for row in reader:
+        print(row['fname'], row['lname'])
+ 
+###########
+# json
+import json
+json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])
+json — JSON encoder and decode
+
+The JavaScript Object Notation (JSON) Data Interchange Format
+
+images = """
+{
+    "Images": [
+    {
+        "Title":"High View",
+        "Width": 800,
+        "Height": 600,
+        "Where": "View from 15th Floor",
+        "Greyscale": true,
+        "Author": null,
+        "Thumbnail": {
+            "Url": "http://www.example.com/image/481989943",
+            "Height": 125,
+            "Width": 100
+        },
+        "Animated": false,
+        "IDs": [116, 943, 234, 38793]
+    },
+    {
+        "Title":"Ground View",
+        "Width": 800,
+        "Height": 600,
+        "Where": "View from 1st Floor",
+        "Greyscale": false,
+        "Author": "Charles Darwin",
+        "Thumbnail": {
+            "Url": "http://www.example.com/image/481989955",
+            "Height": 125,
+            "Width": 100
+        },
+        "Animated": false,
+        "IDs": [122, 867, 290, 90126]
+    }
+  ]
+}
+"""
+data = json.loads(images)
+print(data)
+type(data)
+type(data["Images"])
+for image in data["Images"]:
+    print(image)
+    print('---')
+for image in data["Images"]:
+    print(image['Title'])
+    print('---')
+# del value
+for image in data["Images"]:
+    del image['Thumbnail']
+print(data)
+# dump
+new_data = json.dumps(data, indent=2)
+print(new_data)
+# states
+filename = 'us_states.json'
+with open(filename) as f:
+    us_states_data = json.load(f)
+    for state in us_states_data['states']:
+        print(state)
+filename = 'us_states.json'
+with open(filename) as f:
+    us_states_data = json.load(f)
+    lons, lats, hover_texts = [], [], []
+    for state in us_states_data['states']:
+        lon = state['long']
+        lat = state['lat']
+        title = state['capital']
+
+        lons.append(lon)
+        lats.append(lat)
+ 
+import json
+
+from plotly.graph_objs import Scattergeo, Layout
+from plotly import offline
+
+# Explore the structure of the data.
+filename = 'eq_data_1_day_m1.json'
+with open(filename) as f:
+    all_eq_data = json.load(f)
+
+all_eq_dicts = all_eq_data['features']
+
+mags, lons, lats, hover_texts = [], [], [], []
+for eq_dict in all_eq_dicts:
+    mag = eq_dict['properties']['mag']
+    lon = eq_dict['geometry']['coordinates'][0]
+    lat = eq_dict['geometry']['coordinates'][1]
+    title = eq_dict['properties']['title']
+    mags.append(mag)
+    lons.append(lon)
+    lats.append(lat)
+    hover_texts.append(title)
+
+# Map the earthquakes.
+data = [{
+    'type': 'scattergeo',
+    'lon': lons,
+    'lat': lats,
+    'text': hover_texts,
+    'marker': {
+        'size': [5*mag for mag in mags],
+        'color': mags,
+        'colorscale': 'Viridis',
+        'reversescale': True,
+        'colorbar': {'title': 'Magnitude'},
+    },
+}]
+
+my_layout = Layout(title='Global Earthquakes')
+
+fig = {'data': data, 'layout': my_layout}
+offline.plot(fig, filename='global_earthquakes.html')
+ 
+Testing and Exceptions
+# exceptions object
+# try-except
+# Handling the ZeroDivisionError Exception
+5 / 0
+try:
+    5 / 0
+except:
+    print('something wrong happened')
+# get exception info
+try:
+    5 / 0
+except Exception as e:
+#     print(dir(e))
+    print(e.__class__)
+#     print(e.args[0])
+#    print(e)
+try:
+    5 / 0
+
+except ZeroDivisionError:
+    print("You cannot divide by zero")
+# multiple excepts
+# default except last
+try:
+    print(aa)
+except ZeroDivisionError:
+    print("You cannot divide by zero")
+except Exception as err:
+    print(f'something wrong happened which is {err}')
+# 'else' if no errors raised
+try:
+    print(aa)
+except ZeroDivisionError:
+    print("You cannot divide by zero")
+except:
+    print('something wrong happened')
+else:
+    print('no errors found')
+# 'finally' to be executed whether or not an error is raised
+try:
+    f = open("demofile.txt")
+    try:
+        f.write("Lorum Ipsum")
+    except:
+        print("Something went wrong when writing to the file")
+    finally:
+        f.close()
+except:
+    print("Something went wrong when opening the file")
+# types of built-in exceptions
+# https://docs.python.org/3/library/exceptions.html#BaseException
+# rasing exceptions with 'raise' statement
+x = -1
+
+if x < 0:
+    raise Exception("Sorry, no numbers below zero")
+try:
+    raise Exception("Hi buddy")
+except Exception:
+    print('انت هتصاحبني ولا إيه؟')
+# fail silently
+try:
+    5 / 0
+except:
+    pass
+print('as if nothing happened')
+ 
+doctest — Test interactive Python examples
+
+"""
+This is the "example" module.
+
+The example module supplies one function, factorial().  For example,
+
+>>> factorial(5)
+120
+"""
+
+
+def factorial(n):
+    """Return the factorial of n, an exact integer >= 0.
+
+    >>> [factorial(n) for n in range(6)]
+    [1, 1, 2, 6, 24, 120]
+    >>> factorial(30)
+    265252859812191058636308480000000
+    >>> factorial(-1)
+    Traceback (most recent call last):
+        ...
+    ValueError: n must be >= 0
+
+    Factorials of floats are OK, but the float must be an exact integer:
+    >>> factorial(30.1)
+    Traceback (most recent call last):
+        ...
+    ValueError: n must be exact integer
+    >>> factorial(30.0)
+    265252859812191058636308480000000
+
+    It must also not be ridiculously large:
+    >>> factorial(1e100)
+    Traceback (most recent call last):
+        ...
+    OverflowError: n too large
+    """
+
+    import math
+    if not n >= 0:
+        raise ValueError("n must be >= 0")
+    if math.floor(n) != n:
+        raise ValueError("n must be exact integer")
+    if n + 1 == n:  # catch a value like 1e300
+        raise OverflowError("n too large")
+    result = 1
+    factor = 2
+    while factor <= n:
+        result *= factor
+        factor += 1
+    return result
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+ 
+ 
+ 
+#################
+# Linear Diophantine Equation (LDE)
+# ax+by=c, where  x,y ∈ Z  and a, b, c are integer constants
+# has a solution if and only if c is a multiple of the gcd(a,b)
+def pour(jug1, jug2):
+    max1, max2, fill = 3, 5, 4 # 3x + 5y = 4
+    
+    print(f'{jug1} \t {jug2}')
+    if jug2 == fill:
+        return
+    elif jug2 == max2:
+        pour(0, jug1)
+    elif jug1 != 0 and jug2 == 0:
+        pour(0, jug1)
+    elif jug1 == fill:
+        pour(jug1, 0)
+    elif jug1 < max1:
+        pour(max1, jug2)
+    elif jug1 < (max2-jug2):
+        pour(0, (jug1+jug2))
+    else:
+        pour(jug1-(max2-jug2), (max2-jug2)+jug2)
+ 
+print("JUG1\tJUG2")
+pour(0, 0)
+ 
+#################
+# Linear Diophantine Equation (LDE)
+# ax+by=c, where  x,y ∈ Z  and a, b, c are integer constants
+# has a solution if and only if c is a multiple of the gcd(a,b)
+import math
+def pour(jug1, jug2):
+    max1, max2, fill = 6, 9, 7
+    if math.gcd(max1, max2) % fill != 0:
+        return f'sorry! the goal amount should be a multiple of the gcd of {max1} and {max2}'
+    print(f'{jug1} \t {jug2}')
+    if jug2 == fill:
+        return 
+    elif jug2 == max2:
+        pour(0, jug1)
+    elif jug1 != 0 and jug2 == 0:
+        pour(0, jug1)
+    elif jug1 == fill:
+        pour(jug1, 0)
+    elif jug1 < max1:
+        pour(max1, jug2)
+    elif jug1 < (max2-jug2):
+        pour(0, (jug1+jug2))
+    else:
+        pour(jug1-(max2-jug2), (max2-jug2)+jug2)
+ 
+print("JUG1\tJUG2")
+pour(0, 0)
+ 
+ 
+ 
+ 
+ 
+ 
+small = 0
+big = 0
+
+def fill_small():
+    small = 3
+
+def fill_big():
+    big = 5
+
+def empty_small():
+    small = 0
+
+def empty_big():
+    big = 0
+
+def pour_small_into_big():
+    old_big = big
+    big = min(5, big + small)
+    small = small - (big - old_big)
+
+def pour_big_into_small():
+    old_small = small
+    small = min(3, small + big)
+    big = big - (small - old_small)
+
+def physics_of_jugs():
+    assert 0 <= small <= 3
+    assert 0 <= big <= 5
