@@ -1,5 +1,8 @@
 # AI-roadmap-for-beginners
 ![digital-art-artwork-cyber-cyberpunk-neon-hd-wallpaper-preview](https://user-images.githubusercontent.com/105731768/216759007-13523109-5a78-410e-b630-c85914ea3a06.jpg)
+
+
+
 consists of 3 levels (Foundational, Core, Specialization)
 
 1-Foundational level (Basic skills + math behind ML):
